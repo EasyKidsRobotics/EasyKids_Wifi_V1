@@ -2,14 +2,9 @@
 #include <vector>
 #include <WiFi.h>
 #include <Wire.h>
-#include "SPI.h"
 #include "Servo.h"
 
 ${EXTINC}
-
-//#include "TFT_eSPI.h" //for matrix led
-
-//TFT_eSPI tft = TFT_eSPI();
 
 typedef int Number;
 typedef int Boolean;
