@@ -1,3 +1,3 @@
-# EasyKids WiFi Board for KBIDE
+# EasyKids
 
 
