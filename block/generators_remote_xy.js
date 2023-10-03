@@ -144,4 +144,54 @@ module.exports = function (Blockly) {
     return code;
   };
 
+  Blockly.JavaScript['remote_xy_robot_run'] = function (block) {
+    // TODO: Assemble JavaScript into code variable.
+    var code =
+      `
+      RemoteXY_Handler();
+      if (remote_xy_Read(6) > 50) {
+        speedm = 50;
+        speedm = map(speedm, 0, 100, 0, 255);
+        ledcWrite(_MotorA_ch, 0);
+        ledcWrite(_MotorB_ch, speedm);
+        ledcWrite(_MotorC_ch, speedm);
+        ledcWrite(_MotorD_ch, 0);
+      } else if (remote_xy_Read(6) < -50) {
+        speedm = 50;
+        speedm = map(speedm, 0, 100, 0, 255);
+        ledcWrite(_MotorA_ch, speedm);
+        ledcWrite(_MotorB_ch, 0);
+        ledcWrite(_MotorC_ch, 0);
+        ledcWrite(_MotorD_ch, speedm);
+      } else if (remote_xy_Read(9) > 50) {
+        m1 = 50;
+        m1 = map(m1, 0, 100, 0, 255);
+        ledcWrite(_MotorA_ch, 0);
+        ledcWrite(_MotorB_ch, m1);
+        m2 = 50;
+        m2 = map(m2, 0, 100, 0, 255);
+        ledcWrite(_MotorC_ch, 0);
+        ledcWrite(_MotorD_ch, m2);
+      } else if (remote_xy_Read(9) < -50) {
+        m1 = 50;
+        m1 = map(m1, 0, 100, 0, 255);
+        ledcWrite(_MotorA_ch, m1);
+        ledcWrite(_MotorB_ch, 0);
+        m2 = 50;
+        m2 = map(m2, 0, 100, 0, 255);
+        ledcWrite(_MotorC_ch, m2);
+        ledcWrite(_MotorD_ch, 0);
+      } else {
+        ledcWrite(_MotorA_ch, 255);
+        ledcWrite(_MotorB_ch, 255);
+        ledcWrite(_MotorC_ch, 255);
+        ledcWrite(_MotorD_ch, 255);
+      }
+      //delay(10);
+\n
+`;
+    return code;
+  };
+
+
 };

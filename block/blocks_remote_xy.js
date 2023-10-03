@@ -65,11 +65,24 @@ module.exports = function (Blockly) {
   Blockly.Blocks['remote_xy_run'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField("RemoteXY: Run");
+        .appendField("RemoteXY: App Connect");
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(210);
+      this.setTooltip("");
+      this.setHelpUrl("");
+    }
+  };
+
+  Blockly.Blocks['remote_xy_robot_run'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField("RemoteXY: Robot WiFi Control");
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(250);
       this.setTooltip("");
       this.setHelpUrl("");
     }
